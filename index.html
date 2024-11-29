@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Janus - Professional Web Developer specializing in frontend development, backend solutions, and blockchain technology">
     <title>Janus - Web Developer</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -12,12 +13,18 @@
             --purple-primary: #6B46C1;
             --yellow-accent: #ECC94B;
         }
+        html {
+            scroll-behavior: smooth;
+        }
         .gradient-bg {
             background: linear-gradient(135deg, var(--purple-primary) 0%, #4C1D95 100%);
         }
+        .hover-effect {
+            transform: translateY(0);
+            transition: transform 0.3s ease;
+        }
         .hover-effect:hover {
             transform: translateY(-5px);
-            transition: all 0.3s ease;
         }
         .text-shadow {
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
@@ -44,22 +51,28 @@
             50% { transform: translateY(-10px); }
             100% { transform: translateY(0px); }
         }
+        @media (prefers-reduced-motion: reduce) {
+            .floating, .hover-effect, .typing-effect {
+                animation: none;
+                transform: none;
+            }
+        }
     </style>
 </head>
 <body class="bg-gray-50">
     <!-- Navigation -->
-    <nav class="gradient-bg text-white shadow-lg fixed w-full z-10">
+    <nav class="gradient-bg text-white shadow-lg fixed w-full z-10" role="navigation">
         <div class="container mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
                 <div class="flex items-center">
                     <span class="text-2xl font-bold text-yellow-400 floating">Janus</span>
                 </div>
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="#about" class="hover:text-yellow-400 transition-colors">About</a>
-                    <a href="#skills" class="hover:text-yellow-400 transition-colors">Skills</a>
-                    <a href="#portfolio" class="hover:text-yellow-400 transition-colors">Portfolio</a>
-                    <a href="#contact" class="hover:text-yellow-400 transition-colors">Contact</a>
-                    <a href="https://github.com/pielancer314" class="hover:text-yellow-400 transition-colors">
+                    <a href="#about" class="hover:text-yellow-400 transition-colors duration-300">About</a>
+                    <a href="#skills" class="hover:text-yellow-400 transition-colors duration-300">Skills</a>
+                    <a href="#portfolio" class="hover:text-yellow-400 transition-colors duration-300">Portfolio</a>
+                    <a href="#contact" class="hover:text-yellow-400 transition-colors duration-300">Contact</a>
+                    <a href="https://github.com/pielancer314" class="hover:text-yellow-400 transition-colors duration-300" aria-label="GitHub Profile">
                         <i class="fab fa-github text-xl"></i>
                     </a>
                 </div>
@@ -107,21 +120,21 @@
             <h2 class="text-4xl font-bold text-center text-purple-900 mb-12" data-aos="fade-down">Technical Skills</h2>
             <div class="grid md:grid-cols-3 gap-8">
                 <div class="bg-white rounded-lg shadow-lg p-8 hover-effect" data-aos="flip-left" data-aos-delay="200">
-                    <div class="text-yellow-400 text-4xl mb-4">
+                    <div class="text-yellow-400 text-4xl mb-4" aria-hidden="true">
                         <i class="fas fa-code"></i>
                     </div>
                     <h3 class="text-2xl font-bold text-purple-900 mb-4">Frontend Development</h3>
                     <p class="text-gray-700">HTML5, CSS3, JavaScript, React, Angular</p>
                 </div>
                 <div class="bg-white rounded-lg shadow-lg p-8 hover-effect" data-aos="flip-left" data-aos-delay="400">
-                    <div class="text-yellow-400 text-4xl mb-4">
+                    <div class="text-yellow-400 text-4xl mb-4" aria-hidden="true">
                         <i class="fas fa-server"></i>
                     </div>
                     <h3 class="text-2xl font-bold text-purple-900 mb-4">Backend Development</h3>
                     <p class="text-gray-700">Node.js, Express, RESTful APIs</p>
                 </div>
                 <div class="bg-white rounded-lg shadow-lg p-8 hover-effect" data-aos="flip-left" data-aos-delay="600">
-                    <div class="text-yellow-400 text-4xl mb-4">
+                    <div class="text-yellow-400 text-4xl mb-4" aria-hidden="true">
                         <i class="fas fa-link"></i>
                     </div>
                     <h3 class="text-2xl font-bold text-purple-900 mb-4">Blockchain</h3>
@@ -140,7 +153,7 @@
                     <h3 class="text-2xl font-bold text-purple-900 mb-4">MemePi Project</h3>
                     <p class="text-gray-700 mb-6">A blockchain-based meme platform built on the Pi Network, combining humor with cryptocurrency technology.</p>
                     <div class="flex justify-center space-x-4">
-                        <a href="https://314-hash.github.io/MemePi/" target="_blank" class="inline-block bg-yellow-400 text-purple-900 px-6 py-2 rounded-full font-bold hover:bg-yellow-300 transition duration-300">
+                        <a href="https://314-hash.github.io/MemePi/" target="_blank" rel="noopener noreferrer" class="inline-block bg-yellow-400 text-purple-900 px-6 py-2 rounded-full font-bold hover:bg-yellow-300 transition duration-300">
                             View Project
                         </a>
                     </div>
@@ -149,7 +162,7 @@
                     <h3 class="text-2xl font-bold text-purple-900 mb-4">FoodPiHub</h3>
                     <p class="text-gray-700 mb-6">A decentralized food delivery platform powered by Pi Network, connecting local restaurants with hungry customers.</p>
                     <div class="flex justify-center space-x-4">
-                        <a href="https://314-hash.github.io/foodpihub.github.io/" target="_blank" class="inline-block bg-yellow-400 text-purple-900 px-6 py-2 rounded-full font-bold hover:bg-yellow-300 transition duration-300">
+                        <a href="https://314-hash.github.io/foodpihub.github.io/" target="_blank" rel="noopener noreferrer" class="inline-block bg-yellow-400 text-purple-900 px-6 py-2 rounded-full font-bold hover:bg-yellow-300 transition duration-300">
                             View Project
                         </a>
                     </div>
@@ -164,7 +177,7 @@
             <h2 class="text-4xl font-bold text-purple-900 mb-8" data-aos="fade-down">Let's Work Together</h2>
             <p class="text-xl text-gray-700 mb-8" data-aos="fade-up" data-aos-delay="200">Need a website or blockchain project? I'm available for freelance work!</p>
             <a href="mailto:najnajoredal@gmail.com" class="inline-block bg-purple-600 text-white px-8 py-3 rounded-full font-bold hover:bg-purple-700 transition duration-300" data-aos="zoom-in" data-aos-delay="400">
-              send me an email
+                Send me an email
             </a>
         </div>
     </section>
@@ -181,8 +194,12 @@
         AOS.init({
             duration: 1000,
             once: true,
-            mirror: false
+            mirror: false,
+            disable: window.matchMedia('(prefers-reduced-motion: reduce)').matches
         });
+    </script>
+</body>
+</html>
     </script>
 </body>
 </html>
